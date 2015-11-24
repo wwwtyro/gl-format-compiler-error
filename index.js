@@ -41,7 +41,7 @@ function formatCompilerError(errLog, src, type) {
         if (errors[i+1]) {
             var e = errors[i+1];
             e = e.substr(e.split(':', 3).join(':').length + 1).trim();
-            longForm += sprintf('^^^^: %s\n\n', e);
+            longForm += sprintf('^^^ %s\n\n', e);
         }
     }
 
