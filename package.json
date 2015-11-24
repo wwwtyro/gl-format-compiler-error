@@ -1,6 +1,6 @@
 {
   "name": "gl-format-compiler-error",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Formats a webgl glsl compiler error.",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/wwwtyro/gl-format-compiler-error#readme",
   "dependencies": {
+    "add-line-numbers": "^1.0.1",
     "gl-constants": "^1.0.0",
     "glsl-shader-name": "^1.0.0",
     "sprintf-js": "^1.0.3"
