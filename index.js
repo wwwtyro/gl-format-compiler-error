@@ -24,7 +24,7 @@ function formatCompilerError(errLog, src, type) {
 
     for (var i = 0; i < errorStrings.length; i++) {
         var errorString = errorStrings[i];
-        if (errorString === '') continue;
+        if (errorString === '' || errorString === "\0") continue;
         var lineNo = parseInt(errorString.split(':')[2]);
         if (isNaN(lineNo)) {
             throw new Error(sprintf('Could not parse error: %s', errorString));
