@@ -29,7 +29,8 @@ function formatCompilerError(errLog, src, type) {
         if (isNaN(lineNo)) {
             throw new Error(sprintf('Could not parse error: %s', errorString));
         }
-        errors[lineNo] = errorString;
+        errors[lineNo] = errors[lineNo] || [];
+        errors[lineNo].push(errorString);
     }
 
     var lines = addLineNumbers(src).split('\n');
@@ -39,9 +40,13 @@ function formatCompilerError(errLog, src, type) {
         var line = lines[i];
         longForm += line + '\n';
         if (errors[i+1]) {
-            var e = errors[i+1];
-            e = e.substr(e.split(':', 3).join(':').length + 1).trim();
-            longForm += sprintf('^^^ %s\n\n', e);
+            var elist = errors[i+1];
+            for (var j = 0; j < elist.length; j++) {
+                var e = elist[j];
+                e = e.substr(e.split(':', 3).join(':').length + 1).trim();
+                longForm += sprintf('^^^ %s\n', e);
+            }
+            longForm += '\n';
         }
     }
 
