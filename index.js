@@ -44,8 +44,9 @@ function formatCompilerError(errLog, src, type) {
             for (var j = 0; j < elist.length; j++) {
                 var e = elist[j];
                 e = e.substr(e.split(':', 3).join(':').length + 1).trim();
-                longForm += sprintf('^^^ %s\n\n', e);
+                longForm += sprintf('^^^ %s\n', e);
             }
+            longForm += '\n';
         }
     }
 
